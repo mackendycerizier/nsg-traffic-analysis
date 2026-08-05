@@ -42,6 +42,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
 </ul>
 
 <hr>
+<img width="350" height="133" alt="traffic " src="https://github.com/user-attachments/assets/3c0133d6-5ff7-4515-80b5-8c56ec56cd2b" />
 
 <h2>Part 1: Create Resources</h2>
 
@@ -51,7 +52,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
   <li>Create a Windows 11 Virtual Machine (VM).
     <ol type="a">
       <li>While creating the VM, select the Resource Group created earlier.</li>
-      <li>Allow the creation of a new Virtual Network (Vnet) and Subnet for the VM.</li>
+      <li>Allow the creation of a new Virtual Network (LabVnet) and Subnet for the VM.</li>
     </ol>
   </li>
 
@@ -87,7 +88,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
     </ul>
   </li>
 
-  <li>Initiate a continuous ping from the Windows 10 VM to the Ubuntu VM.</li>
+  <li>Initiate a continuous ping from the Windows 11 VM to the Ubuntu VM.</li>
 
   <li>In the Azure portal, access the Network Security Group (NSG) assigned to the Ubuntu VM and disable inbound ICMP traffic.
     <ul>
@@ -101,7 +102,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
     </ul>
   </li>
 
-  <li>Stop the continuous ping activity from the Windows 10 VM.</li>
+  <li>Stop the continuous ping activity from the Windows 11 VM.</li>
 </ol>
 
 <hr>
@@ -111,9 +112,9 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
 <ol>
   <li>In Wireshark, apply a filter to capture SSH traffic.</li>
 
-  <li>From the Windows 10 VM, establish an SSH connection to the Ubuntu VM using its private IP address.
+  <li>From the Windows 11 VM, establish an SSH connection to the Ubuntu VM using its private IP address.
     <ul>
-      <li>Type commands (e.g., username, password) into the SSH session and observe the SSH traffic in Wireshark.</li>
+      <li>Type commands (e.g., id, hostname,uname -a ) into the SSH session and observe the SSH traffic in Wireshark.</li>
       <li>Exit the SSH session by typing exit and pressing Enter.</li>
     </ul>
   </li>
@@ -126,7 +127,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
 <ol>
   <li>In Wireshark, apply a filter to capture DHCP traffic.</li>
 
-  <li>From the Windows 10 VM, attempt to request a new IP address using the command <code>ipconfig /renew</code>.
+  <li>From the Windows 11 VM, attempt to request a new IP address using the command <code>ipconfig /renew</code>.
     <ul>
       <li>Observe the DHCP traffic in Wireshark as the VM communicates with the DHCP server to renew its IP address.</li>
     </ul>
@@ -140,7 +141,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
 <ol>
   <li>In Wireshark, apply a filter to capture DNS traffic.</li>
 
-  <li>From the Windows 10 VM, use the <code>nslookup</code> command to resolve the IP addresses of websites like google.com and disney.com.
+  <li>From the Windows 11 VM, use the <code>nslookup</code> command to resolve the IP addresses of websites like google.com and disney.com.
     <ul>
       <li>Observe the DNS query and response traffic in Wireshark.</li>
     </ul>
@@ -154,7 +155,7 @@ In this project, we use Wireshark to examine traffic between Azure Virtual Machi
 <ol>
   <li>In Wireshark, apply a filter to capture RDP traffic (using the filter <code>tcp.port == 3389</code>).</li>
 
-  <li>Observe the continuous stream of RDP traffic between your local machine and the Windows 10 VM.
+  <li>Observe the continuous stream of RDP traffic between your local machine and the Windows 11 VM.
     <ul>
       <li>This constant stream is because RDP continuously transmits data to keep the live remote session active.</li>
       <li>The protocol constantly sends data, even when there is no specific user activity, to maintain the connection and update the screen in real time.</li>
